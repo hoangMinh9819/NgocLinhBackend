@@ -1,8 +1,6 @@
 package com.ngoclinh.backendspring.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,8 +17,6 @@ public class ReceiptDetails {
     @EmbeddedId
     private ReceiptDetailsID receiptDetailsID;
     @Column(name = "QUANTITY")
-    @Min(value=10)
-    @Max(100)
     private int quantity;
 
     @ManyToOne
