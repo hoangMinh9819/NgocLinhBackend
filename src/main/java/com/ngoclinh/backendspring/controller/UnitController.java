@@ -8,12 +8,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UnitController {
 
     @Autowired
     private UnitService unitService;
-
     @GetMapping("/units")
     public List<UnitDTO> getAllUnits(){
         return unitService.showAllUnits();

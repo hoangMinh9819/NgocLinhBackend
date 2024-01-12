@@ -1,9 +1,7 @@
 package com.ngoclinh.backendspring.controller;
 
 import com.ngoclinh.backendspring.dto.ProductDTO;
-import com.ngoclinh.backendspring.dto.UnitDTO;
 import com.ngoclinh.backendspring.service.ProductService;
-import jakarta.annotation.Nullable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
