@@ -2,6 +2,8 @@ package com.ngoclinh.backendspring.controller;
 
 import com.ngoclinh.backendspring.dto.UnitDTO;
 import com.ngoclinh.backendspring.service.UnitService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +11,9 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
+@RequiredArgsConstructor
 public class UnitController {
-
-    @Autowired
-    private UnitService unitService;
+    private final UnitService unitService;
     @GetMapping("/units")
     public List<UnitDTO> getAllUnits(){
         return unitService.showAllUnits();
@@ -29,7 +30,7 @@ public class UnitController {
     }
 
     @PostMapping("/addUnit")
-    public void addUnit(@RequestBody UnitDTO unitDTO){
+    public void addUnit(@RequestBody @Valid UnitDTO unitDTO){
         unitService.addUnit(unitDTO);
     }
 

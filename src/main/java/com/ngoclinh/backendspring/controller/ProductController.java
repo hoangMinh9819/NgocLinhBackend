@@ -2,6 +2,7 @@ package com.ngoclinh.backendspring.controller;
 
 import com.ngoclinh.backendspring.dto.ProductDTO;
 import com.ngoclinh.backendspring.service.ProductService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +10,9 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
+@RequiredArgsConstructor
 public class ProductController {
-    @Autowired
-    private ProductService productService;
+    private final ProductService productService;
     @GetMapping("/products")
     public List<ProductDTO> getAllProducts(){
         return productService.showAllProducts();
