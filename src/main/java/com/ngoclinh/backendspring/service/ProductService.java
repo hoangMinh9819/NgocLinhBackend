@@ -7,7 +7,6 @@ import com.ngoclinh.backendspring.model.Unit;
 import com.ngoclinh.backendspring.repository.ProductRepository;
 import com.ngoclinh.backendspring.repository.UnitRepository;
 import com.ngoclinh.backendspring.service.InterfaceService.IProductService;
-import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -5,13 +5,13 @@ import lombok.*;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name="tbl_humans")
+@Entity
+@Table(name="tbl_humans")
 public class Human {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -42,6 +42,4 @@ public class Human {
     @UpdateTimestamp
     @Column(name="UPDATED_DATE")
     private LocalDateTime updatedDate;
-
-
 }
