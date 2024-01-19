@@ -1,4 +1,4 @@
-package com.ngoclinh.backendspring.dto;
+package com.ngoclinh.backendspring.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

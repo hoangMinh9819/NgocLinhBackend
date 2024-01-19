@@ -14,32 +14,43 @@ import java.time.LocalDateTime;
 @Table(name="tbl_humans")
 public class Human {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "human_seq_generator")
+    @SequenceGenerator(name = "human_seq_generator", sequenceName = "humans_id_seq", allocationSize = 1)
     @Column(name="human_id")
     private Long id;
-    @Column(name="NAME")
+
+    @Column(name="name")
     private String name;
-    @Column(name="ADDRESS")
+
+    @Column(name="address")
     private String address;
-    @Column(name="PHONE")
+
+    @Column(name="phone")
     private String phone;
-    @Column(name="USERNAME")
+
+    @Column(name="username")
     private String username;
-    @Column(name="PASSWORD")
+
+    @Column(name="password")
     private String password;
-    @Column(name="ROLE")
+
+    @Column(name="role")
     @Enumerated(EnumType.STRING)
     private Role role;
+
     @ManyToOne
     @JoinColumn(name="created_by")
     private Human createdBy;
+
     @UpdateTimestamp
     @Column(name="created_date")
     private LocalDateTime createdDate;
+
     @ManyToOne
-    @JoinColumn(name="UPDATED_BY")
+    @JoinColumn(name="updated_by")
     private Human updatedBy;
+
     @UpdateTimestamp
-    @Column(name="UPDATED_DATE")
+    @Column(name="updated_date")
     private LocalDateTime updatedDate;
 }

@@ -1,9 +1,8 @@
 package com.ngoclinh.backendspring.controller;
 
-import com.ngoclinh.backendspring.dto.ProductDTO;
+import com.ngoclinh.backendspring.model.dto.ProductDTO;
 import com.ngoclinh.backendspring.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

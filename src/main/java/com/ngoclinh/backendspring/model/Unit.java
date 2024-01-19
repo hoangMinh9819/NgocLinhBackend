@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
@@ -18,21 +17,28 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="tbl_units")
 public class Unit {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unit_seq_generator")
+    @SequenceGenerator(name = "unit_seq_generator", sequenceName = "units_id_seq", allocationSize = 1)
     private Long id;
-    @Column(name="NAME", nullable = false)
+
+    @Column(name="name")
     private String name;
-    @ManyToOne
-    @JoinColumn(name = "created_by")
-    private Human createdBy;
+
     @Column(name = "created_date")
     @CreationTimestamp
     private LocalDateTime createdDate;
-    @ManyToOne
-    @JoinColumn(name="UPDATED_BY")
-    private Human updatedBy;
-    @Column(name="UPDATED_DATE")
+
+    @Column(name="updated_date")
     @UpdateTimestamp
     private LocalDateTime updatedDate;
+
+    @JoinColumn(name = "created_by")
+    @ManyToOne
+    private Human createdBy;
+
+    @JoinColumn(name="updated_by")
+    @ManyToOne
+    private Human updatedBy;
 }

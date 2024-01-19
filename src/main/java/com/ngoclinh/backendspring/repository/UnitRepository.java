@@ -8,6 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UnitRepository extends JpaRepository<Unit,Long> {
-    @Query("select u from Unit u where u.name = :name")
-    Unit findByName(@Param("name") String name);
+    Unit findByNameContaining(String name);
 }

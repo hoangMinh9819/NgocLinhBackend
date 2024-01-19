@@ -1,6 +1,6 @@
 package com.ngoclinh.backendspring.service.InterfaceService;
 
-import com.ngoclinh.backendspring.dto.ProductDTO;
+import com.ngoclinh.backendspring.model.dto.ProductDTO;
 
 import java.util.List;
 

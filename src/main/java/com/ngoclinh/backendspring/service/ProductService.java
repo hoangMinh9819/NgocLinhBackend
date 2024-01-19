@@ -1,7 +1,7 @@
 package com.ngoclinh.backendspring.service;
 
-import com.ngoclinh.backendspring.dto.ProductDTO;
-import com.ngoclinh.backendspring.dto.UnitDTO;
+import com.ngoclinh.backendspring.model.dto.ProductDTO;
+import com.ngoclinh.backendspring.model.dto.UnitDTO;
 import com.ngoclinh.backendspring.model.Product;
 import com.ngoclinh.backendspring.model.Unit;
 import com.ngoclinh.backendspring.repository.ProductRepository;
@@ -10,7 +10,6 @@ import com.ngoclinh.backendspring.service.InterfaceService.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
