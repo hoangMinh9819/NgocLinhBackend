@@ -1,4 +1,4 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
-@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 public class WareHouseDetailsID implements Serializable {
-    private Long wareHouseId;
-    private Long productId;
+    private WareHouse wareHouseId;
+    private Product productId;
 }

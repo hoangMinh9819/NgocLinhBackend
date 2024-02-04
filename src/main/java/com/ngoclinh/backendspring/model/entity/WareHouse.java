@@ -1,10 +1,7 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,34 +9,40 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "tbl_ware_houses")
 public class WareHouse {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    @Column(name = "ware_house_id")
-    private long wareHouseId;
-    @Column(name = "NAME")
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
     private String name;
-    @Column(name = "ADDRESS")
+
+    @Column(name = "address")
     private String address;
-    @Column(name = "PHONE")
+
+    @Column(name = "phone")
     private String phone;
+
     @ManyToOne
     @JoinColumn(name = "create_by")
     private Human createdBy;
-    @Column(name = "CREATED_DATE")
+
+    @Column(name = "created_date")
     @CreationTimestamp
     private LocalDateTime createdDate;
-    @JoinColumn(name = "UPDATED_BY")
+
+    @JoinColumn(name = "updated_by")
     @ManyToOne
     private Human updatedBy;
-    @Column(name = "UPDATED_DATE")
+
+    @Column(name = "updated_date")
     @UpdateTimestamp
     private LocalDateTime updatedDate;
-    @OneToMany(mappedBy = "wareHouse")
+
+    @OneToMany(mappedBy = "wareHouseId")
     private List<WareHouseDetails> wareHouseDetailsList;
 }

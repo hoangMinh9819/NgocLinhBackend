@@ -1,6 +1,6 @@
 package com.ngoclinh.backendspring.repository;
 
-import com.ngoclinh.backendspring.model.Human;
+import com.ngoclinh.backendspring.model.entity.Human;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

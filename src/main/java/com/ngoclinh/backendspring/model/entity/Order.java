@@ -1,10 +1,7 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -12,31 +9,35 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Table(name="TBL_Orders")
+@Table(name="tbl_orders")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="ORDER_ID")
+    @Column(name="id")
     private Long id;
+
     @ManyToOne
-    @JoinColumn(name="CREATED_BY")
+    @JoinColumn(name="human_id")
+    private Human humanId;
+
+    @ManyToOne
+    @JoinColumn(name="created_by")
     private Human createdBy;
+
     @ManyToOne
-    @JoinColumn(name="CUSTOMER_ID")
-    private Human customerId;
-    @ManyToOne
-    @JoinColumn(name="UPDATED_BY")
+    @JoinColumn(name="updated_by")
     private Human updatedBy;
-    @Column(name="CREATED_DATE")
+
+    @Column(name="created_date")
     @CreationTimestamp
     private LocalDateTime createdDate;
-    @Column(name="UPDATED_DATE")
+
+    @Column(name="updated_date")
     @UpdateTimestamp
     private LocalDateTime updatedDate;
-    @OneToMany(mappedBy = "order")
+
+    @OneToMany(mappedBy = "orderId")
     private List<OrderDetails> orderDetailsList;
 }

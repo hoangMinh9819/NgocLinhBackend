@@ -1,12 +1,15 @@
 package com.ngoclinh.backendspring.repository;
 
-import com.ngoclinh.backendspring.model.Unit;
+import com.ngoclinh.backendspring.model.entity.Unit;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface UnitRepository extends JpaRepository<Unit,Long> {
-    Unit findByNameContaining(String name);
+
+    Unit findUnitByName(String name);
+    boolean existsUnitByName(String name);
+    List<Unit> findByNameContainingIgnoreCase(String name);
 }

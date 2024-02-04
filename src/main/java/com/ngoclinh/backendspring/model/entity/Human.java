@@ -1,4 +1,4 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -6,17 +6,15 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="tbl_humans")
 public class Human {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "human_seq_generator")
     @SequenceGenerator(name = "human_seq_generator", sequenceName = "humans_id_seq", allocationSize = 1)
-    @Column(name="human_id")
+    @Column(name="id")
     private Long id;
 
     @Column(name="name")
@@ -42,13 +40,13 @@ public class Human {
     @JoinColumn(name="created_by")
     private Human createdBy;
 
-    @UpdateTimestamp
-    @Column(name="created_date")
-    private LocalDateTime createdDate;
-
     @ManyToOne
     @JoinColumn(name="updated_by")
     private Human updatedBy;
+
+    @UpdateTimestamp
+    @Column(name="created_date")
+    private LocalDateTime createdDate;
 
     @UpdateTimestamp
     @Column(name="updated_date")

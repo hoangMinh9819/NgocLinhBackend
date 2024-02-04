@@ -1,29 +1,25 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="tbl_units")
 public class Unit {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unit_seq_generator")
-    @SequenceGenerator(name = "unit_seq_generator", sequenceName = "units_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name="name")
+    @NotBlank
     private String name;
 
     @Column(name = "created_date")

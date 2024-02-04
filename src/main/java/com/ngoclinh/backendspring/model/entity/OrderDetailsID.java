@@ -1,17 +1,16 @@
-package com.ngoclinh.backendspring.model;
+package com.ngoclinh.backendspring.model.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-
-@Embeddable
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class ReceiptDetailsID  implements Serializable {
-    private Long receiptId;
-    private Long productId;
+public class OrderDetailsID implements Serializable {
+    private Order orderId;
+    private Product productId;
 }
