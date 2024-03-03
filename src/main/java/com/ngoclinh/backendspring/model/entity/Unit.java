@@ -22,11 +22,11 @@ public class Unit {
     @NotBlank
     private String name;
 
-    @Column(name = "created_date")
+    @Column(name = "created_date", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdDate;
 
-    @Column(name="updated_date")
+    @Column(name="updated_date", insertable = false)
     @UpdateTimestamp
     private LocalDateTime updatedDate;
 

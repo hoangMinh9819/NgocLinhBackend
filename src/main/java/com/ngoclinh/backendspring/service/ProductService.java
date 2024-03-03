@@ -31,7 +31,7 @@ public class ProductService implements IProductService {
     @Override
     public Page<ProductDTO> findByName(Pageable pageable, String name) {
         System.out.println("IN findByName");
-        Page<Product> products = productRepository.findProductsByNameIsContaining(pageable, name);
+        Page<Product> products = productRepository.findProductsByNameIsContainingIgnoreCase(pageable, name);
         Page<ProductDTO> productDTOS = products.map(productMapper::toDto);
         return productDTOS;
     }

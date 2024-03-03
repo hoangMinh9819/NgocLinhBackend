@@ -53,7 +53,7 @@ public class Product {
     @JoinColumn(name = "created_by")
     private Human createdBy;
 
-    @Column(name = "created_date")
+    @Column(name = "created_date", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdDate;
 
