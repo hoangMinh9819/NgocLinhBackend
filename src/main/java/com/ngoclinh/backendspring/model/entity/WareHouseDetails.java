@@ -10,11 +10,12 @@ import lombok.*;
 public class WareHouseDetails {
     @Id
     @ManyToOne
-    @JoinColumn(name="warehouse_id", insertable = false, updatable = false)
+    @JoinColumn(name="warehouse_id")
     private WareHouse wareHouseId;
+
     @Id
     @ManyToOne
-    @JoinColumn(name="product_id", insertable = false, updatable = false)
+    @JoinColumn(name="product_id")
     private Product productId;
 
     @Column(name = "quantity")
